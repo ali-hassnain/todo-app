@@ -21,17 +21,12 @@ const create = async (payload) => {
 
 const update = async (id, payload) => {
   try {
-console.log("id ==> ", id)
     const todo = await todoSchema.findByIdAndUpdate(id, {
       title: payload.title, description: payload.description, status: payload.status
     },   {
       new: true
         }
     );
-
-
-    console.log("todo ====> ", todo)
-
     return {
       success: true,
       payload: todo,
@@ -78,7 +73,6 @@ const findAll = async () => {
       errors: null,
     };
   } catch (err) {
-    console.log("error", err);
     return {
       success: false,
       payload: null,

@@ -23,13 +23,11 @@ const getTodos = async (req, res) => {
 };
 
 const updateTodo = async (req, res) => {
-  // console.log("req ==> ", req)
   const todo = await update(req.body.id, req.body);
   return res.json(todo);
 };
 
 const deleteTodo = async (req, res) => {
-  console.log("req ====> ", req.query)
   const todo = await remove(req.query.id);
   return res.json(todo);
 };
